@@ -19,8 +19,6 @@ void Interpreter::parse(const std::string& path)
 
   while (std::getline(program, line))
   {
-    std::istringstream is(line);
-
     if (std::regex_search(line, std::regex("^\\s*Board\\s+"))) {
       std::string board_name = trim(line.substr(line.find("Board") + 5, line.substr(line.find("Board") + 5).find("(")));
       std::string fen = line.substr(line.find("(") + 1, line.substr(line.find("(") + 1).find(")"));
